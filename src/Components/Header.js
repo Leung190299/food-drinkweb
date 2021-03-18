@@ -39,7 +39,7 @@ const Header = () => {
 						<li className="nav-item dropdown">
 							<NavLink className="nav-link dropdown-toggle" to="#" id="dropdown-a" data-toggle="dropdown"> Tài Khoản</NavLink>
 							<div className="dropdown-menu" aria-labelledby="dropdown-a">
-								<NavLink className="dropdown-item" to="blog.html">Thôn tin tài khoản</NavLink>
+								<NavLink className="dropdown-item" to="/Profile">Mã QR </NavLink>
 								<Button className="dropdown-item" variant="text" onClick={Logout} >Đăng xuất</Button>
 							</div>
 						</li>

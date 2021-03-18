@@ -10,6 +10,7 @@ import ProtectedRouter from './Protecte/ProtectedRouter'
 import ProductPase from './Pase/ProductPase'
 import Footer from './Components/Footer'
 import BillPase from './Pase/BillPase'
+import ProfilePase from './Pase/ProfilePase'
 
 const App = () => {
     return (
@@ -23,6 +24,7 @@ const App = () => {
             <ProtectedRouter path='/Table'>{TablePase}</ProtectedRouter>
             <ProtectedRouter path='/Product'>{ProductPase}</ProtectedRouter>
             <ProtectedRouter path='/Bill'>{BillPase}</ProtectedRouter>
+            <ProtectedRouter path='/Profile'>{ProfilePase}</ProtectedRouter>
             <Route path='/Login' component={Login}/>
             
         </Switch>

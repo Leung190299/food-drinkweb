@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Datas from '../../Data/Firebase';
 import Cookies from 'js-cookie'
 import {useForm} from 'react-hook-form'
