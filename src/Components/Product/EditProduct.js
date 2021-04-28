@@ -98,7 +98,7 @@ const EditProduct = () => {
                             <select className="form-control" aria-label="Default select example" onChange={(e)=>setProduct({...product,categori:e.target.value})}>
                                 {loai.map((item)=>{
                                     return(
-                                        <option key={item.id} defaultValue value={item.name}>{item.name}</option>
+                                        <option key={item.id} defaultValue value={item.id}>{item.name}</option>
                                     )
                                     
                                 })}

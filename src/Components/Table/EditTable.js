@@ -4,18 +4,18 @@ import Cookies from 'js-cookie'
 import SaveTwoToneIcon from '@material-ui/icons/SaveTwoTone';
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
-import { useHistory } from 'react-router-dom';
+import { useHistory ,useLocation} from 'react-router-dom';
 
 const EditTable = () => {
    const Table={
-       id:'',
-       name:'',
-       status:false,
+      
    }
    const So={
        so1:0,
        so2:0,
    }
+ 
+    const location=useLocation();
    const history=useHistory();
    const [table,setTable]=React.useState(Table);
    const [so,setSo]=React.useState(So);
@@ -27,12 +27,15 @@ const EditTable = () => {
     })
     setTables(array)
    
-},[tables])
+},[])
   const themTable=()=>{
    
     Datas.database().ref(Cookies.get('add')).child('table').child(table.id).set(table).then(()=>{
         alert('Thêm Thành công');
-       
+        history.replace('/reload');
+            setTimeout(() => {
+                history.replace(location.pathname)
+            },);
     }).catch((e)=>{
         alert(e);
     })   
@@ -70,11 +73,11 @@ const updateTable=()=>{
                     <form  >
                     <div className="form-group">
                             <label htmlFor="usr">Mã bàn</label>
-                            <input type="text" className="form-control" id="usr" value={table.id} onChange={(e)=>setTable({...table,id:e.target.value})}/>
+                            <input type="text" className="form-control"  value={table.id} onChange={(e)=>setTable({...table,id:e.target.value})}/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="usr">Tên bàn</label>
-                            <input type="text" className="form-control" id="usr" value={table.name} onChange={(e)=>setTable({...table,name:e.target.value})}/>
+                            <input type="text" className="form-control"  value={table.name} onChange={(e)=>setTable({...table,name:e.target.value})}/>
                         </div>
                         <div className='row' style={{display:'flex',justifyContent:'space-between',marginInline:1}} >
                         <button className="btn  col-3" onClick={()=>themTable()} type='button'><SaveTwoToneIcon/></button>

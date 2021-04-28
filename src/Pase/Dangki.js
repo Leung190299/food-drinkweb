@@ -11,7 +11,8 @@ export default function FormDialog() {
     const accont={
         Username:'',
         Password:'',
-        Password2:''
+        Password2:'',
+        name:'',
       }
     var [acc,setAcc]=React.useState(accont);
   const [open, setOpen] = React.useState(false);
@@ -33,9 +34,14 @@ export default function FormDialog() {
       e.preventDefault()
       if(acc.Password===acc.Password2){
         Datas.auth().createUserWithEmailAndPassword(acc.Username, acc.Password)
-        .then((userCredential) => {
-          // Signed in 
-          alert('Đăng kí thành công');setOpen(false);
+        .then(() => {
+          
+          const Emailcut=acc.Username.slice(0,acc.Username.indexOf('@'));
+          Datas.database().ref(Emailcut).set({name:acc.name});
+          
+          alert('Đăng kí thành công');
+          setOpen(false);
+         
           // ...
         })
         .catch((error) => {
@@ -84,6 +90,15 @@ export default function FormDialog() {
             label="Mật khẩu"
             value={acc.Password2} onChange={(e)=>{setAcc({...acc,Password2:e.target.value})}} 
             type="password"
+            fullWidth
+          />
+           <TextField
+            
+            margin="dense"
+            
+            label="Tên quán đăng ký"
+            value={acc.name} onChange={(e)=>{setAcc({...acc,name:e.target.value})}} 
+            type="text"
             fullWidth
           />
         </DialogContent>

@@ -12,8 +12,8 @@ const Header = () => {
         <header className="top-navbar " style={{position:'fixed'}}>
 		<nav className="navbar navbar-expand-lg navbar-light bg-light">
 			<div className="container">
-				<NavLink className="navbar-brand" to="/">
-					<img src="images/logo.png" alt="" />
+				<NavLink className="navbar-brand" to='/'>
+				<h2 style={{fontSize:30,fontWeight:'bold',color:'#00ff80'}}>	OrFast</h2>
 				</NavLink>
 				<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 				  <span className="navbar-toggler-icon"></span>
